@@ -1,0 +1,18 @@
+{
+  "name": "query-stream",
+  "destription": "a stream for autosuggest queries",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dominictarr/query-stream",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/query-stream.git"
+  },
+  "dependencies": {
+    "through": "~1.1.0"
+  },
+  "scripts": {
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "author": "'Dominic Tarr' <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
+}
