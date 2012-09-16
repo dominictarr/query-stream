@@ -1,7 +1,7 @@
 {
   "name": "query-stream",
   "destription": "a stream for autosuggest queries",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/dominictarr/query-stream",
   "repository": {
     "type": "git",
