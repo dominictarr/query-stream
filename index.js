@@ -24,16 +24,20 @@ module.exports = function (request, init) {
         //this means the stuff previously emitted is not wanted any more
         self.buffer.length = 0
         if(requestN !== 1)
-          self.queue('CLEAR')
+          self.queue('CLEAR'), self.resume()
 
         if(err) return cleanup(), self.emit('error', err)
 
         if(Array.isArray(data))
           data.forEach(append)
         else if('function' == typeof data.pipe) {
-          if(stream) stream.removeListener('data', append)
+          if(stream) {
+            stream.removeListener('data', append)
+            if(stream.end) stream.end()
+            if(stream.destroy) stream.destroy()
+            stream.emit('query')
+          }
           stream = data.on('data', append)
-          if(stream.resume) stream.resume() //just in case.
         }
         else
           append(data)
